@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: rgb(229, 233, 237);
+}
+
+#gameboardGrid {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  height: 150px;
+  width: 15px;
+}
+
+.cell {
+  height: 60px;
+  width: 60px;
+  background-color: grey;
+}
