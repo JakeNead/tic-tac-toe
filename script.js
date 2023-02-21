@@ -1,8 +1,6 @@
 const gameboard = (function () {
     let gameboardArray = [
-        ['x', 'o', 'x'],
-        ['o', 'x', 'o']
-        ['x', 'o', 'x']
+        'x', 'o', 'x','o', 'x', 'o','x', 'o', 'x'
     ]
 })()
 
@@ -14,3 +12,4 @@ return {}
 const gameplay = (function () {
 })()
 // obj to control flow of game
+
