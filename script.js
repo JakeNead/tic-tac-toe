@@ -1,20 +1,24 @@
-// gameboard module to init the gameboard
-
 const gameboard = (function () {
+    let playerToken = 'X';
     let gameboardArray = [
-        'x', 'o', 'x', 'o', 'x', 'o', 'x', 'o', 'x'
+        '', '', '', '', '', '', '', '', ''
     ]
-    // render the gamboard array on the DOM
     const cells = document.querySelectorAll('.cell')
-    const renderBoard = (cells) => {
-        for (let i=0; i<cells.length; i++) {
-            cells[i].textContent = gameboardArray[i]
+    cells.forEach(cell => cell.addEventListener('click', el => {
+        let cellNum = el.target.getAttribute('id')
+        if (el.target.textContent !== '') {
+            return
         }
-    }
-    renderBoard(cells)
+        el.target.textContent = playerToken;
+        gameboardArray[cellNum] = playerToken;
+        playerToken === 'X' ? playerToken = 'O' : playerToken = 'X';
+    })
+    )
+
+   
     return {
-        renderBoard,
-    }
+        gameboardArray,
+        }
 })()
 
 // player objects factory?
@@ -22,7 +26,8 @@ const playerFactory = (userName) => {
 return {}
 }
 
+// obj to control flow of game
 const gameplay = (function () {
 })()
-// obj to control flow of game
+
 
