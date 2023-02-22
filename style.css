@@ -6,17 +6,43 @@
 
 body {
   background-color: rgb(229, 233, 237);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+}
+
+h1 {
+  margin: 30px;
+}
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
 }
 
 #gameboardGrid {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  height: 150px;
-  width: 15px;
+  justify-items: center;
 }
 
 .cell {
-  height: 60px;
-  width: 60px;
+  height: 75px;
+  width: 75px;
   background-color: grey;
+  border: 1px solid black;
+  color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
