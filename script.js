@@ -23,13 +23,13 @@
             })
         )},
        
-        addToken: (e) => {
+        addToken: function (e) {
             e.target.textContent = this.playerToken;
         },
-        updateArray: (e) => {
+        updateArray: function (e) {
             this.gameboardArray[e.target.getAttribute('id')] = this.playerToken;
         },
-        updatePlayerToken: () => {
+        updatePlayerToken: function () {
             this.playerToken === 'X' ? this.playerToken = 'O' : this.playerToken = 'X';
         }
     }
