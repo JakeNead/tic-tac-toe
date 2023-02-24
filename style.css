@@ -41,6 +41,17 @@ h1 {
   font-size: 3em;
 }
 
+.reset {
+  text-align: center;
+  margin: 1em;
+}
+
+.reset button {
+  padding: 0.25em 0.5em;
+  border-radius: 0.5em;
+  /* border: 1px solid grey; */
+}
+
 footer {
   position: absolute;
   bottom: 0;
