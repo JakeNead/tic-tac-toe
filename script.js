@@ -20,10 +20,10 @@
                 this.addToken(el)
                 this.updateArray(el)
                 this.updatePlayerToken(el)
+                this.checkForWinner(el)
             })
         )},
-       
-        addToken: function (e) {
+            addToken: function (e) {
             e.target.textContent = this.playerToken;
         },
         updateArray: function (e) {
@@ -31,9 +31,15 @@
         },
         updatePlayerToken: function () {
             this.playerToken === 'X' ? this.playerToken = 'O' : this.playerToken = 'X';
+        },
+        checkForWinner: function () {
+
+
+           const winners = [012, 345, 678, 036, 147,258, 048, 246]
         }
     }
     game.init();
+    return game.gameboardArray
 })()
 
 // player objects factory?
