@@ -9,6 +9,7 @@
         },
         cacheDom: function() {
             this.cells = document.querySelectorAll('.cell')
+            this.reset = document.querySelector('.reset')
             // this.playerOne = document.querySelector('#pOne')
             // this.playerTwo = document.querySelector('#pTwo')
         },
@@ -21,7 +22,8 @@
                 this.updateArray(el)
                 this.updatePlayerToken(el)
                 this.checkForWinner(el)
-            })
+            }),
+            this.reset 
         )},
         addToken: function (e) {
             e.target.textContent = this.playerToken;
@@ -45,15 +47,23 @@
                     this.gameboardArray[wins[i][1]] === 'O' && 
                     this.gameboardArray[wins[i][2]] === 'O') {
                     this.gameOver = true
-                    return this.winner('O')}
+                    return this.winner('O')
+                } else if (this.gameboardArray.filter(cell => cell === '').length === 0) {
+                    return this.winner('tie')
+                }
         }},
         winner: function (char) {
-            console.log(`The winner is ${char}`)
-        },
+            return (char === 'tie') ? console.log('Tie game!'):console.log(`The winner is ${char}`)
+            }
     }
     game.init();
     return game.gameboardArray
 })()
+
+// add win condition to checkForWinner
+// add reset button logic
+// psuedo element "you win" notification
+// minmax AI?
 
 // player objects factory?
     // const playerFactory = (userName) => {
