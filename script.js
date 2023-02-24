@@ -33,9 +33,20 @@
             this.playerToken === 'X' ? this.playerToken = 'O' : this.playerToken = 'X';
         },
         checkForWinner: function () {
-
-
-           const winners = [012, 345, 678, 036, 147,258, 048, 246]
+            const wins = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+            for (let i=0; i<8; i++) {
+                if (this.gameboardArray[wins[i][0]] === 'X' && 
+                this.gameboardArray[wins[i][1]] === 'X' && 
+                this.gameboardArray[wins[i][2]] === 'X') {
+                    return this.winner('X')
+                } else if (
+                    this.gameboardArray[wins[i][0]] === 'O' && 
+                    this.gameboardArray[wins[i][1]] === 'O' && 
+                    this.gameboardArray[wins[i][2]] === 'O')
+                    return this.winner('O')
+        }},
+        winner: function (char) {
+            console.log(`The winner is ${char}`)
         }
     }
     game.init();
@@ -50,5 +61,3 @@
 // obj to control flow of game?
     // const gameplay = (function () {
     // })()
-
-
