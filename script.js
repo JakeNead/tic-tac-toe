@@ -22,9 +22,16 @@
                 this.updateArray(el)
                 this.updatePlayerToken(el)
                 this.checkForWinner(el)
-            }),
-            this.reset 
-        )},
+            })
+            )
+            this.reset.addEventListener('click', el => {
+                this.resetCells(el),
+                this.resetGameboardArray(el),
+                this.removeResult(el),
+                this.gameOver = false
+            })
+        },
+
         addToken: function (e) {
             e.target.textContent = this.playerToken;
         },
@@ -54,13 +61,27 @@
         }},
         winner: function (char) {
             return (char === 'tie') ? console.log('Tie game!'):console.log(`The winner is ${char}`)
-            }
+            },
+        resetCells: function (){
+
+        },
+        resetGameboardArray: function (){
+
+        },
+        removeResult: function (){
+
+        },
+   
+        // resetGameboard: function () {
+        //     this.reset.addEventListener('click', 
+        //     // reset gameboard, gameboardaaray, gameover = false, remove result psuedo attribute
+        //     )
+        // } 
     }
     game.init();
-    return game.gameboardArray
+
 })()
 
-// add win condition to checkForWinner
 // add reset button logic
 // psuedo element "you win" notification
 // minmax AI?
