@@ -15,6 +15,8 @@ body {
 
 h1 {
   margin: 30px;
+  font-size: 3rem;
+  text-align: center;
 }
 
 .players {
@@ -22,6 +24,7 @@ h1 {
   justify-content: space-between;
   margin: 15px;
   position: relative;
+  font-size: 2rem;
 }
 
 #gameboardGrid {
@@ -31,8 +34,8 @@ h1 {
 }
 
 .cell {
-  height: 75px;
-  width: 75px;
+  height: 125px;
+  width: 125px;
   background-color: grey;
   border: 1px solid black;
   color: orange;
@@ -50,13 +53,14 @@ h1 {
 .reset button {
   padding: 0.25em 0.5em;
   border-radius: 0.5em;
-  /* border: 1px solid grey; */
+  font-size: 1.2rem;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .winnerOne::before {
@@ -82,5 +86,17 @@ footer {
   z-index: -1;
 }
 
-.tie {
+/* .tie {
+} */
+
+img {
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: bottom;
+
+  margin-left: 3px;
+}
+
+img:hover {
+  cursor: pointer;
 }
