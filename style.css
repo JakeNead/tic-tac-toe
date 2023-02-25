@@ -86,8 +86,17 @@ footer {
   z-index: -1;
 }
 
-/* .tie {
-} */
+.tie::before {
+  color: black;
+  background-color: rgb(222, 150, 18);
+  position: absolute;
+  content: "Tie game!";
+  bottom: 30px;
+  right: 118px;
+  padding: 3px 7px 3px 7px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
 
 img {
   height: 1.2em;

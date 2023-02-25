@@ -61,7 +61,7 @@
         }},
         displayResult: function (char) {
             if (char === 'tie'){
-                return 'attribute change..............'
+                return this.playerTwo.setAttribute('class', 'tie')
             } else if (char === 'X')
                 {this.playerOne.setAttribute('class', 'winnerOne')}
             else {this.playerTwo.setAttribute('class', 'winnerTwo')}
@@ -74,7 +74,9 @@
 
         },
         removeResult: function () {
-
+            this.playerOne.removeAttribute('class', 'winnerOne')
+            this.playerTwo.removeAttribute('class', 'winnerTwo')
+            this.playerTwo.removeAttribute('class', 'tie')
         }
     }
     game.init();
