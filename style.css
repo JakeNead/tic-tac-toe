@@ -15,12 +15,16 @@ body {
 
 h1 {
   margin: 30px;
+  font-size: 3rem;
+  text-align: center;
 }
 
 .players {
   display: flex;
   justify-content: space-between;
   margin: 15px;
+  position: relative;
+  font-size: 2rem;
 }
 
 #gameboardGrid {
@@ -30,8 +34,8 @@ h1 {
 }
 
 .cell {
-  height: 75px;
-  width: 75px;
+  height: 125px;
+  width: 125px;
   background-color: grey;
   border: 1px solid black;
   color: orange;
@@ -49,11 +53,59 @@ h1 {
 .reset button {
   padding: 0.25em 0.5em;
   border-radius: 0.5em;
-  /* border: 1px solid grey; */
+  font-size: 1.2rem;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   text-align: center;
+  margin-bottom: 5px;
+}
+
+.winnerOne::before {
+  color: black;
+  background-color: rgb(78, 181, 78);
+  position: absolute;
+  content: "Winner!";
+  bottom: -2px;
+  left: -14px;
+  padding: 3px 18px 28px 18px;
+  border-radius: 10px;
+  z-index: -1;
+}
+.winnerTwo::before {
+  color: black;
+  background-color: rgb(78, 181, 78);
+  position: absolute;
+  content: "Winner!";
+  bottom: -2px;
+  right: -14px;
+  padding: 3px 16px 28px 16px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.tie::before {
+  color: black;
+  background-color: rgb(222, 150, 18);
+  position: absolute;
+  content: "Tie game!";
+  bottom: 30px;
+  right: 118px;
+  padding: 3px 7px 3px 7px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+img {
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: bottom;
+
+  margin-left: 3px;
+}
+
+img:hover {
+  cursor: pointer;
 }

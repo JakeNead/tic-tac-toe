@@ -10,8 +10,8 @@
         cacheDom: function() {
             this.cells = document.querySelectorAll('.cell')
             this.reset = document.querySelector('.reset')
-            // this.playerOne = document.querySelector('#pOne')
-            // this.playerTwo = document.querySelector('#pTwo')
+            this.playerOne = document.querySelector('#pOne')
+            this.playerTwo = document.querySelector('#pTwo')
         },
         bindEvents: function() {
             this.cells.forEach(c => c.addEventListener('click', el => {
@@ -22,9 +22,16 @@
                 this.updateArray(el)
                 this.updatePlayerToken(el)
                 this.checkForWinner(el)
-            }),
-            this.reset 
-        )},
+            })
+            )
+            this.reset.addEventListener('click', el => {
+                this.resetCells(el),
+                this.resetGameboardArray(el),
+                this.removeResult(el),
+                this.gameOver = false
+            })
+        },
+
         addToken: function (e) {
             e.target.textContent = this.playerToken;
         },
@@ -41,26 +48,41 @@
                     this.gameboardArray[wins[i][1]] === 'X' && 
                     this.gameboardArray[wins[i][2]] === 'X') {
                     this.gameOver = true
-                    return this.winner('X')
+                    return this.displayResult('X')
                 } else if (
                     this.gameboardArray[wins[i][0]] === 'O' && 
                     this.gameboardArray[wins[i][1]] === 'O' && 
                     this.gameboardArray[wins[i][2]] === 'O') {
                     this.gameOver = true
-                    return this.winner('O')
+                    return this.displayResult('O')
                 } else if (this.gameboardArray.filter(cell => cell === '').length === 0) {
-                    return this.winner('tie')
+                    return this.displayResult('tie')
                 }
         }},
-        winner: function (char) {
-            return (char === 'tie') ? console.log('Tie game!'):console.log(`The winner is ${char}`)
-            }
+        displayResult: function (char) {
+            if (char === 'tie'){
+                return this.playerTwo.setAttribute('class', 'tie')
+            } else if (char === 'X')
+                {this.playerOne.setAttribute('class', 'winnerOne')}
+            else {this.playerTwo.setAttribute('class', 'winnerTwo')}
+            },
+        resetCells: function () {
+            this.cells.forEach(e => e.textContent = '')
+        },
+        resetGameboardArray: function () {
+            this.gameboardArray = ['', '', '', '', '', '', '', '', '']
+
+        },
+        removeResult: function () {
+            this.playerOne.removeAttribute('class', 'winnerOne')
+            this.playerTwo.removeAttribute('class', 'winnerTwo')
+            this.playerTwo.removeAttribute('class', 'tie')
+        }
     }
     game.init();
-    return game.gameboardArray
+
 })()
 
-// add win condition to checkForWinner
 // add reset button logic
 // psuedo element "you win" notification
 // minmax AI?
