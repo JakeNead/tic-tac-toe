@@ -21,6 +21,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   margin: 15px;
+  position: relative;
 }
 
 #gameboardGrid {
@@ -56,4 +57,30 @@ footer {
   position: absolute;
   bottom: 0;
   text-align: center;
+}
+
+.winnerOne::before {
+  color: black;
+  background-color: rgb(78, 181, 78);
+  position: absolute;
+  content: "Winner!";
+  bottom: -2px;
+  left: -6px;
+  padding: 3px 18px 28px 18px;
+  border-radius: 10px;
+  z-index: -1;
+}
+.winnerTwo::before {
+  color: black;
+  background-color: rgb(78, 181, 78);
+  position: absolute;
+  content: "Winner!";
+  bottom: -2px;
+  right: -7px;
+  padding: 3px 18px 28px 18px;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.tie {
 }

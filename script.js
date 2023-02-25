@@ -10,8 +10,8 @@
         cacheDom: function() {
             this.cells = document.querySelectorAll('.cell')
             this.reset = document.querySelector('.reset')
-            // this.playerOne = document.querySelector('#pOne')
-            // this.playerTwo = document.querySelector('#pTwo')
+            this.playerOne = document.querySelector('#pOne')
+            this.playerTwo = document.querySelector('#pTwo')
         },
         bindEvents: function() {
             this.cells.forEach(c => c.addEventListener('click', el => {
@@ -48,35 +48,34 @@
                     this.gameboardArray[wins[i][1]] === 'X' && 
                     this.gameboardArray[wins[i][2]] === 'X') {
                     this.gameOver = true
-                    return this.winner('X')
+                    return this.displayResult('X')
                 } else if (
                     this.gameboardArray[wins[i][0]] === 'O' && 
                     this.gameboardArray[wins[i][1]] === 'O' && 
                     this.gameboardArray[wins[i][2]] === 'O') {
                     this.gameOver = true
-                    return this.winner('O')
+                    return this.displayResult('O')
                 } else if (this.gameboardArray.filter(cell => cell === '').length === 0) {
-                    return this.winner('tie')
+                    return this.displayResult('tie')
                 }
         }},
-        winner: function (char) {
-            return (char === 'tie') ? console.log('Tie game!'):console.log(`The winner is ${char}`)
+        displayResult: function (char) {
+            if (char === 'tie'){
+                return 'attribute change..............'
+            } else if (char === 'X')
+                {this.playerOne.setAttribute('class', 'winnerOne')}
+            else {this.playerTwo.setAttribute('class', 'winnerTwo')}
             },
-        resetCells: function (){
+        resetCells: function () {
+            this.cells.forEach(e => e.textContent = '')
+        },
+        resetGameboardArray: function () {
+            this.gameboardArray = ['', '', '', '', '', '', '', '', '']
 
         },
-        resetGameboardArray: function (){
+        removeResult: function () {
 
-        },
-        removeResult: function (){
-
-        },
-   
-        // resetGameboard: function () {
-        //     this.reset.addEventListener('click', 
-        //     // reset gameboard, gameboardaaray, gameover = false, remove result psuedo attribute
-        //     )
-        // } 
+        }
     }
     game.init();
 
