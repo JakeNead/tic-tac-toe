@@ -28,7 +28,8 @@
                 this.resetCells(el),
                 this.resetGameboardArray(el),
                 this.removeResult(el),
-                this.gameOver = false
+                this.gameOver = false,
+                this.playerToken = 'X'
             })
         },
 
