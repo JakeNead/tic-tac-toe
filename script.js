@@ -12,6 +12,7 @@
             this.reset = document.querySelector('.reset')
             this.playerOne = document.querySelector('#pOne')
             this.playerTwo = document.querySelector('#pTwo')
+            this.themeToggle = document.querySelector('themeToggle')
         },
         bindEvents: function() {
             this.cells.forEach(c => c.addEventListener('click', el => {
@@ -31,6 +32,7 @@
                 this.gameOver = false,
                 this.playerToken = 'X'
             })
+            this.themeToggle.addEventListener('click', this.setTheme())
         },
 
         addToken: function (e) {
@@ -78,21 +80,13 @@
             this.playerOne.removeAttribute('class', 'winnerOne')
             this.playerTwo.removeAttribute('class', 'winnerTwo')
             this.playerTwo.removeAttribute('class', 'tie')
+        },
+        setTheme: function () {
+            const root = document.documentElement;
+            const newTheme = root.className === 'dark' ? 'light': 'dark';
+            root.className = newTheme
         }
+
     }
     game.init();
-
 })()
-
-// add reset button logic
-// psuedo element "you win" notification
-// minmax AI?
-
-// player objects factory?
-    // const playerFactory = (userName) => {
-    // return {}
-    // }
-
-// obj to control flow of game?
-    // const gameplay = (function () {
-    // })()
