@@ -17,7 +17,7 @@
 :root.light {
   --color-bg: rgb(248, 248, 255);
   --color-gameboard: rgb(228, 228, 240);
-  --color-font: rgb(0, 0, 0);
+  --color-font: rgb(5, 5, 5);
   --color-border: rgb(12, 12, 12);
   --color-token: rgb(28, 24, 28);
   --color-win: rgb(75, 129, 92);
@@ -89,6 +89,9 @@ h1 {
   font-size: 1.2rem;
   margin: bottom 1em;
 }
+.reset button:active {
+  transform: scale(1.03);
+}
 
 footer {
   position: absolute;
@@ -154,13 +157,6 @@ img:hover {
   position: absolute;
   right: 1rem;
   top: 1rem;
-}
-#darkMode {
-}
-
-#lightMode {
-  fill: var(--color-font);
-  color: var(--color-font);
 }
 
 .hide {
