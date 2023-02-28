@@ -6,13 +6,17 @@
         init: function() {
             this.cacheDom()
             this.bindEvents()
+            this.root.className = 'light'
         },
         cacheDom: function() {
             this.cells = document.querySelectorAll('.cell')
             this.reset = document.querySelector('.reset')
             this.playerOne = document.querySelector('#pOne')
             this.playerTwo = document.querySelector('#pTwo')
-            this.themeToggle = document.querySelector('themeToggle')
+            this.themeToggle = document.querySelector('.themeToggle')
+            this.lightMode = document.querySelector('#lightMode')
+            this.darkMode = document.querySelector('#darkMode')
+            this.root = document.documentElement;
         },
         bindEvents: function() {
             this.cells.forEach(c => c.addEventListener('click', el => {
@@ -32,9 +36,11 @@
                 this.gameOver = false,
                 this.playerToken = 'X'
             })
-            this.themeToggle.addEventListener('click', this.setTheme())
+            this.themeToggle.addEventListener('click', () => {
+                this.setTheme(),
+                this.toggleThemeIcon()
+            })
         },
-
         addToken: function (e) {
             e.target.textContent = this.playerToken;
         },
@@ -58,10 +64,10 @@
                     this.gameboardArray[wins[i][2]] === 'O') {
                     this.gameOver = true
                     return this.displayResult('O')
-                } else if (this.gameboardArray.filter(cell => cell === '').length === 0) {
+                } }  if (this.gameboardArray.filter(cell => cell === '').length === 0) {
                     return this.displayResult('tie')
                 }
-        }},
+       },
         displayResult: function (char) {
             if (char === 'tie'){
                 return this.playerTwo.setAttribute('class', 'tie')
@@ -82,11 +88,21 @@
             this.playerTwo.removeAttribute('class', 'tie')
         },
         setTheme: function () {
-            const root = document.documentElement;
-            const newTheme = root.className === 'dark' ? 'light': 'dark';
-            root.className = newTheme
+            let newTheme = game.root.className === 'dark' ? 'light': 'dark';
+            game.root.className = newTheme
+        },
+        toggleThemeIcon: function () {
+            console.log(this.lightMode.getAttribute('class'))
+            if (this.lightMode.getAttribute('class') === 'hide'){
+                this.lightMode.removeAttribute('class')
+                this.darkMode.setAttribute('class', 'hide')
+            } else if (this.darkMode.getAttribute('class') === 'hide'){
+                this.darkMode.removeAttribute('class')
+                this.lightMode.setAttribute('class', 'hide')
+            }
         }
-
     }
     game.init();
 })()
+
+// bug: if last move is winning game shows a tie
